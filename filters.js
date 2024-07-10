@@ -24,31 +24,31 @@ export function updateSelectedFilters() {
     });
   }
 
-export function initFilters() {
-  const filters = document.querySelectorAll(".dropdown .dropdown-content");
-  const selectedFiltersContainer = document.getElementById("selected-filters");
-
-  filters.forEach(filter => {
-    const dropdown = filter.closest('.dropdown');
-    dropdown.addEventListener('click', handleDropdownClick);
-  });
-
-  function removeFilter(event) {
-    const filterTag = event.target.closest(".filter-tag");
-    const filterId = filterTag.dataset.filterId;
-    const optionValue = filterTag.dataset.optionValue;
-    const dropdown = document.getElementById(filterId);
-    const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
-
-    if (filterId === 'colors') {
-      dropdown.dataset.selectedValues = currentValues.filter(val => val !== optionValue).join(',');
-    } else {
-      dropdown.dataset.selectedValue = '';
+  export function initFilters() {
+    const filters = document.querySelectorAll(".dropdown .dropdown-content");
+    const selectedFiltersContainer = document.getElementById("selected-filters");
+  
+    filters.forEach(filter => {
+      const dropdown = filter.closest('.dropdown');
+      dropdown.addEventListener('click', handleDropdownClick);
+    });
+  
+    function removeFilter(event) {
+      const filterTag = event.target.closest(".filter-tag");
+      const filterId = filterTag.dataset.filterId;
+      const optionValue = filterTag.dataset.optionValue;
+      const dropdown = document.getElementById(filterId);
+      const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
+  
+      if (filterId === 'colors') {
+        dropdown.dataset.selectedValues = currentValues.filter(val => val !== optionValue).join(',');
+      } else {
+        dropdown.dataset.selectedValue = '';
+      }
+  
+      updateSelectedFilters();
     }
-
-    updateSelectedFilters();
+    
+    populateSelect('country-nav', countries); // Use country-nav instead of country
+    populateSelect('colors', colors);
   }
-
-  populateSelect('country-nav', countries); // Use country-nav instead of country
-  populateSelect('colors', colors);
-}

@@ -1,30 +1,31 @@
 import { showElement, hideElement, populateSelect, countries, colors, handleDropdownClick } from './utils.js';
 
-export function updateSelectedFilters() {
+export function updateSelectedFilters(filterName, value) {
     console.log('updateSelectedFilters called'); // Add this line
-  const filters = document.querySelectorAll(".dropdown .dropdown-content");
-  const selectedFiltersContainer = document.getElementById("selected-filters");
-  selectedFiltersContainer.innerHTML = ""; // Clear existing filters
-  filters.forEach(filter => {
-    const dropdown = filter.closest('.dropdown');
-    const filterId = dropdown.id;
-    const filterName = filterId.charAt(0).toUpperCase() + filterId.slice(1); // Capitalize filter name
-    const selectedValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
+    const filters = document.querySelectorAll(".dropdown .dropdown-content");
+    const selectedFiltersContainer = document.getElementById("selected-filters");
+    selectedFiltersContainer.innerHTML = ""; // Clear existing filters
+    filters.forEach(filter => {
+        const dropdown = filter.closest('.dropdown');
+        const filterId = dropdown.id;
+        const filterName = filterId.charAt(0).toUpperCase() + filterId.slice(1); // Capitalize filter name
+        const selectedValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
 
-    if (filterId !== 'country-nav' && filterId !== 'country') {
-      selectedValues.forEach(selectedValue => {
-        if (selectedValue) {
-          const filterTag = document.createElement("div");
-          filterTag.className = "filter-tag";
-          filterTag.innerHTML = `<span>${selectedValue}</span><img src="https://cdn.prod.website-files.com/666b15a55a26ad71221e8e13/667855b6602dabc71813e1d9_filter_select_cross.png" class="remove-filter-icon">`;
-          filterTag.dataset.filterId = dropdown.id;
-          filterTag.dataset.optionValue = selectedValue;
-          filterTag.addEventListener("click", removeFilter);
-          selectedFiltersContainer.appendChild(filterTag);
+        if (filterId !== 'country-nav' && filterId !== 'country') {
+            selectedValues.forEach(selectedValue => {
+                if (selectedValue) {
+                    const filterTag = document.createElement("div");
+                    filterTag.className = "filter-tag";
+                    filterTag.innerHTML = `<span>${selectedValue}</span><img src="https://cdn.prod.website-files.com/666b15a55a26ad71221e8e13/667855b6602dabc71813e1d9_filter_select_cross.png" class="remove-filter-icon">`;
+                    filterTag.dataset.filterId = dropdown.id;
+                    filterTag.dataset.optionValue = selectedValue;
+                    filterTag.addEventListener("click", removeFilter);
+                    selectedFiltersContainer.appendChild(filterTag);
+                    console.log('Added filter tag:', filterTag); // Add this line
+                }
+            });
         }
-      });
-    }
-  });
+    });
 }
 
 export function removeFilter(event) {

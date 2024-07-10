@@ -130,3 +130,24 @@ export const currencySymbols = {
       console.error(`Dropdown content for element ID "${elementId}" not found.`);
     }
   }
+
+  export function handleDropdownClick(event) {
+    const dropdownItem = event.target;
+    const dropdown = dropdownItem.closest('.dropdown');
+    const value = dropdownItem.dataset.value;
+    const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
+    const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
+  
+    if (dropdown.id === 'colors') {
+      if (currentValues.includes(value)) {
+        dropdown.dataset.selectedValues = currentValues.filter(val => val !== value).join(',');
+      } else {
+        currentValues.push(value);
+        dropdown.dataset.selectedValues = currentValues.join(',');
+      }
+    } else {
+      dropdown.dataset.selectedValue = value;
+    }
+  
+    updateSelectedFilters(filterName, value);
+  }

@@ -69,6 +69,7 @@ export function initFilters() {
 
     updateSelectedFilters();
   }
+  
   populateSelect('country-nav', countries); // Use country-nav instead of country
   populateSelect('colors', colors);
 }

@@ -1,4 +1,4 @@
-import { showElement, hideElement } from './utils.js';
+import { showElement, hideElement, handleDropdownClick } from './utils.js';
 import { showSkeletons, updateProductCards } from './productDisplay.js'; // Ensure this import is correct
 console.log('search.js loaded'); // Add this line
 

@@ -120,7 +120,6 @@ export const currencySymbols = {
     const dropdown = dropdownItem.closest('.dropdown');
     const value = dropdownItem.dataset.value;
     let currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
-    const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
 
     if (dropdown.id === 'colors') {
         if (currentValues.includes(value)) {
@@ -135,6 +134,7 @@ export const currencySymbols = {
 
     updateSelectedFilters();
 }
+
 
 export function populateSelect(elementId, options) {
     const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);

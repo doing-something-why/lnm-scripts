@@ -156,7 +156,7 @@ function handleSearchFormSubmit(event) {
   showSkeletons(productContainer);
 
   const itemUrl = document.getElementById('item-url');
-  const country = document.getElementById('country-nav').dataset.selectedValue;
+  const country = document.getElementById('country-nav').dataset.selectedValue; // Use country-nav instead of country
   const colors = document.getElementById('colors').dataset.selectedValues ? document.getElementById('colors').dataset.selectedValues.split(',') : [];
 
   if (!itemUrl || !country) {
@@ -202,25 +202,6 @@ function handleAutoSearch(searchForm) {
     document.getElementById('colors').dataset.selectedValues = colorOptions;
 
     searchForm.dispatchEvent(new Event('submit'));
-  }
-}
-
-function handleGeolocationData(data, countryCodesToNames) {
-  const userCountryCode = data.country;
-  const countryName = countryCodesToNames[userCountryCode];
-  const selectElement = document.getElementById('country-nav'); 
-
-  if (selectElement) {
-    const options = Array.from(selectElement.querySelectorAll('.dropdown-item'));
-    const matchingOption = options.find(opt => opt.dataset.value === countryName);
-
-    if (matchingOption) {
-      selectElement.querySelector('.c-text-s').innerHTML = countryName;
-      selectElement.dataset.selectedValue = countryName;
-    } else {
-      selectElement.querySelector('.c-text-s').innerHTML = 'United States';
-      selectElement.dataset.selectedValue = 'United States';
-    }
   }
 }
 

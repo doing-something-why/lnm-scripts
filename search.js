@@ -1,7 +1,9 @@
 import { showElement, hideElement } from './utils.js';
 import { showSkeletons } from './productDisplay.js'; // Ensure this import is correct
+console.log('search.js loaded'); // Add this line
 
 export function initSearchForm() {
+    console.log('initSearchForm called'); // Add this line
     const searchForm = document.getElementById('wf-form-search-form');
     const resultsSection = document.querySelector('.c-section.results');
     const resultsTitleLoading = document.getElementById('results_title_loading');

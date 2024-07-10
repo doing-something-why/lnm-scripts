@@ -1,6 +1,10 @@
 import { showElement, hideElement, currencySymbols } from './utils.js';
 
+console.log('productDisplay.js loaded'); // Add this line
+
+
 export function initProductDisplay() {
+    console.log('initProductDisplay called'); // Add this line
     const productContainer = document.getElementById('cards-container-2');
 
     // Add event listeners for the navigation arrows
@@ -38,6 +42,7 @@ export function initProductDisplay() {
 }
 
 export function showSkeletons(productContainer) {
+    console.log('showSkeletons called'); // Add this line
     const skeletonHTML = `
       <div class="skeleton-card">
         <div class="skeleton-image"></div>

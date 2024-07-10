@@ -80,14 +80,17 @@ export const currencySymbols = {
   };
   
   export function showElement(element) {
+    console.log('showElement called'); // Add this line
     element.classList.add('show');
   }
   
   export function hideElement(element) {
+    console.log('hideElement called'); // Add this line
     element.classList.remove('show');
   }
   
   export function populateSelect(elementId, options) {
+    console.log('populateSelect called'); // Add this line
     const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);
     if (dropdownContent) {
       options.forEach(option => {

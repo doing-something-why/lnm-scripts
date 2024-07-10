@@ -1,7 +1,7 @@
 import { initFilters } from './filters.js';
 import { initSearchForm } from './search.js';
 import { initProductDisplay } from './productDisplay.js';
-import { initCountrySelection } from './country.js'; // Assuming initCountrySelection is in country.js
+import { initCountrySelection } from './country.js';
 
 document.addEventListener("DOMContentLoaded", function() {
   initFilters();

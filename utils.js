@@ -2,7 +2,7 @@ export const currencySymbols = {
     // Currency symbols mapping
   };
   
-export const countryCodesToNames = {
+  export const countryCodesToNames = {
     "FR": "France",
     "AL": "Albania",
     "AM": "Armenia",
@@ -103,4 +103,3 @@ export const countryCodesToNames = {
       console.error(`Dropdown content for element ID "${elementId}" not found.`);
     }
   }
-  

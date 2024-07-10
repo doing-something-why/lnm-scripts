@@ -1,4 +1,6 @@
-function initCountrySelection() {
+import { countryCodesToNames } from './utils.js'; // Add this line
+
+export function initCountrySelection() {
     fetch(`https://ipinfo.io?token=a3e2e26d91aed3`)
       .then(response => response.json())
       .then(data => {
@@ -26,4 +28,4 @@ function initCountrySelection() {
         selectElement.querySelector('.c-text-l').innerHTML = 'United States';
         selectElement.dataset.selectedValue = 'United States';
       });
-  }
+}

@@ -116,7 +116,9 @@ export const currencySymbols = {
   }
   
   export function handleDropdownClick(event) {
+    console.log('handleDropdownClick called'); // Add this line
     const dropdownItem = event.target;
+    console.log('Dropdown item clicked:', dropdownItem); // Add this line
     const dropdown = dropdownItem.closest('.dropdown');
     const value = dropdownItem.dataset.value;
     const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];

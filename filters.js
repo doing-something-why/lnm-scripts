@@ -1,6 +1,7 @@
 import { showElement, hideElement, populateSelect, countries, colors, handleDropdownClick } from './utils.js';
 
 export function updateSelectedFilters() {
+    console.log('updateSelectedFilters called'); // Add this line
   const filters = document.querySelectorAll(".dropdown .dropdown-content");
   const selectedFiltersContainer = document.getElementById("selected-filters");
   selectedFiltersContainer.innerHTML = ""; // Clear existing filters
@@ -27,6 +28,7 @@ export function updateSelectedFilters() {
 }
 
 export function removeFilter(event) {
+    console.log('removeFilter called'); // Add this line
   const filterTag = event.target.closest(".filter-tag");
   const filterId = filterTag.dataset.filterId;
   const optionValue = filterTag.dataset.optionValue;
@@ -43,6 +45,7 @@ export function removeFilter(event) {
 }
 
 export function initFilters() {
+    console.log('initFilters called'); // Add this line
   const filters = document.querySelectorAll(".dropdown .dropdown-content");
   const selectedFiltersContainer = document.getElementById("selected-filters");
 

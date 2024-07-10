@@ -34,11 +34,47 @@ export function initProductDisplay() {
       }
     }
 
+    function CopyLinkSearch() {
+        const copyLinkSearch = document.getElementById('copy-link-search');
+        if (copyLinkSearch) {
+          copyLinkSearch.addEventListener('click', function() {
+            // Get form values
+            const itemUrl = document.getElementById('item-url').value;
+            const country = document.getElementById('country-nav').dataset.selectedValue;
+            const colors = document.getElementById('colors').dataset.selectedValues ? document.getElementById('colors').dataset.selectedValues.split(',') : [];
+      
+            // Generate the search link with parameters
+            const params = new URLSearchParams({
+              search_str: itemUrl,
+              country: country,
+              colors: colors.join(',')
+            });
+      
+            const searchLink = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+      
+            // Copy the generated link to clipboard
+            navigator.clipboard.writeText(searchLink).then(() => {
+              // Change the text to "Link copied!"
+              copyLinkSearch.innerText = "Link copied!";
+              // Optionally, reset the text back after a delay
+              setTimeout(() => {
+                copyLinkSearch.innerText = "Copy search link";
+              }, 2000); // Change back after 2 seconds
+            }).catch(err => {
+              console.error('Failed to copy the text: ', err);
+            });
+          });
+        }
+      }
+      
+      // Call this function when you want to initialize the event listener
+
     productContainer.addEventListener('scroll', checkArrowsVisibility);
     window.addEventListener('resize', checkArrowsVisibility);
 
     // Initial check
     checkArrowsVisibility();
+    CopyLinkSearch();
 }
 
 export function showSkeletons(productContainer) {

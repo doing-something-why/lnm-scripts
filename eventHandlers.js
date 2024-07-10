@@ -22,8 +22,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   setTimeout(() => {
-    document.querySelector(".filters-annotation-wrapper").classList.add("show-timeout");
-  }, 1500); 
+    const filtersAnnotationWrapper = document.querySelector(".filters-annotation-wrapper");
+    if (filtersAnnotationWrapper) {
+      filtersAnnotationWrapper.classList.add("show-timeout");
+    }
+  }, 1500);
 
   if (searchForm) {
     searchForm.addEventListener('submit', handleSearchFormSubmit);
@@ -150,7 +153,7 @@ function handleSearchFormSubmit(event) {
   showElement(resultsSection);
   showElement(resultsTitleLoading);
   hideElement(resultsTitleFound);
-  showSkeletons();
+  showSkeletons(productContainer);
 
   const itemUrl = document.getElementById('item-url');
   const country = document.getElementById('country-nav').dataset.selectedValue;
@@ -222,15 +225,15 @@ function handleGeolocationData(data, countryCodesToNames) {
 }
 
 function handleArrowClick(direction) {
-    const productContainer = document.getElementById('cards-container-2');
-    if (productContainer) {
-      if (direction === 'left') {
-        productContainer.scrollLeft -= productContainer.offsetWidth;
-      } else {
-        productContainer.scrollLeft += productContainer.offsetWidth;
-      }
+  const productContainer = document.getElementById('cards-container-2');
+  if (productContainer) {
+    if (direction === 'left') {
+      productContainer.scrollLeft -= productContainer.offsetWidth;
+    } else {
+      productContainer.scrollLeft += productContainer.offsetWidth;
     }
   }
+}
 
 function checkArrowsVisibility() {
   const productContainer = document.getElementById('cards-container-2');

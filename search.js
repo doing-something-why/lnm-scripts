@@ -1,5 +1,5 @@
 import { showElement, hideElement } from './utils.js';
-import { showSkeletons } from './productDisplay.js'; // Ensure this import is correct
+import { showSkeletons, updateProductCards } from './productDisplay.js'; // Ensure this import is correct
 console.log('search.js loaded'); // Add this line
 
 export function initSearchForm() {

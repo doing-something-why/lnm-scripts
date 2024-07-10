@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function handleDropdownClick(event) {
+export function handleDropdownClick(event) {
   const dropdownItem = event.target;
   const dropdown = dropdownItem.closest('.dropdown');
   const value = dropdownItem.dataset.value;

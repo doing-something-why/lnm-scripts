@@ -1,36 +1,6 @@
-import { showElement, hideElement, populateSelect, countries, colors} from './utils.js';
+import { showElement, hideElement, populateSelect, countries, colors, handleDropdownClick} from './utils.js';
 
-export function initFilters() {
-  const filters = document.querySelectorAll(".dropdown .dropdown-content");
-  const selectedFiltersContainer = document.getElementById("selected-filters");
-
-  filters.forEach(filter => {
-    const dropdown = filter.closest('.dropdown');
-    dropdown.addEventListener('click', handleDropdownClick);
-  });
-
-  function handleDropdownClick(event) {
-    const dropdownItem = event.target;
-    const dropdown = dropdownItem.closest('.dropdown');
-    const value = dropdownItem.dataset.value;
-    const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
-    const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
-
-    if (dropdown.id === 'colors') {
-      if (currentValues.includes(value)) {
-        dropdown.dataset.selectedValues = currentValues.filter(val => val !== value).join(',');
-      } else {
-        currentValues.push(value);
-        dropdown.dataset.selectedValues = currentValues.join(',');
-      }
-    } else {
-      dropdown.dataset.selectedValue = value;
-    }
-
-    updateSelectedFilters(filterName, value);
-  }
-
-  function updateSelectedFilters() {
+export function updateSelectedFilters() {
     selectedFiltersContainer.innerHTML = ""; // Clear existing filters
     filters.forEach(filter => {
       const dropdown = filter.closest('.dropdown');
@@ -54,6 +24,15 @@ export function initFilters() {
     });
   }
 
+export function initFilters() {
+  const filters = document.querySelectorAll(".dropdown .dropdown-content");
+  const selectedFiltersContainer = document.getElementById("selected-filters");
+
+  filters.forEach(filter => {
+    const dropdown = filter.closest('.dropdown');
+    dropdown.addEventListener('click', handleDropdownClick);
+  });
+
   function removeFilter(event) {
     const filterTag = event.target.closest(".filter-tag");
     const filterId = filterTag.dataset.filterId;
@@ -69,7 +48,7 @@ export function initFilters() {
 
     updateSelectedFilters();
   }
-  
+
   populateSelect('country-nav', countries); // Use country-nav instead of country
   populateSelect('colors', colors);
 }

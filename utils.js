@@ -1,3 +1,5 @@
+import { updateSelectedFilters } from './filters.js';
+
 export const currencySymbols = {
     // Currency symbols mapping
   };
@@ -113,7 +115,6 @@ export const currencySymbols = {
     element.classList.remove('show');
   }
   
-
   export function handleDropdownClick(event) {
     const dropdownItem = event.target;
     const dropdown = dropdownItem.closest('.dropdown');
@@ -134,7 +135,7 @@ export const currencySymbols = {
   
     updateSelectedFilters(filterName, value);
   }
-  
+
   export function populateSelect(elementId, options) {
     console.log('populateSelect called'); // Add this line
     const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);

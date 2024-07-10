@@ -1,5 +1,5 @@
 import { showElement, hideElement } from './utils.js';
-import { showSkeletons } from './productDisplay.js'; // Add this line
+import { showSkeletons } from './productDisplay.js'; // Ensure this import is correct
 
 export function initSearchForm() {
     const searchForm = document.getElementById('wf-form-search-form');

@@ -1,4 +1,6 @@
-function initSearchForm() {
+import { showElement, hideElement } from './utils.js';
+
+export function initSearchForm() {
     const searchForm = document.getElementById('wf-form-search-form');
     const resultsSection = document.querySelector('.c-section.results');
     const resultsTitleLoading = document.getElementById('results_title_loading');
@@ -63,7 +65,7 @@ function initSearchForm() {
   
       // Automatically perform search if URL has parameters
       const params = new URLSearchParams(window.location.search);
-      const url = params.get('url');
+      const url = params.get('search_str');
       const country = params.get('country');
       const colors = params.get('colors') ? params.get('colors').split(',') : [];
   

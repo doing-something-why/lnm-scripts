@@ -1,8 +1,8 @@
-const currencySymbols = {
+export const currencySymbols = {
     // Currency symbols mapping
   };
   
-  const countryCodesToNames = {
+export const countryCodesToNames = {
     "FR": "France",
     "AL": "Albania",
     "AM": "Armenia",
@@ -79,15 +79,15 @@ const currencySymbols = {
     "VA": "Vatican City State"
   };
   
-  function showElement(element) {
+  export function showElement(element) {
     element.classList.add('show');
   }
   
-  function hideElement(element) {
+  export function hideElement(element) {
     element.classList.remove('show');
   }
   
-  function populateSelect(elementId, options) {
+  export function populateSelect(elementId, options) {
     const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);
     if (dropdownContent) {
       options.forEach(option => {

@@ -1,4 +1,6 @@
-function initProductDisplay() {
+import { showElement, hideElement, currencySymbols } from './utils.js';
+
+export function initProductDisplay() {
     const productContainer = document.getElementById('cards-container-2');
   
     // Add event listeners for the navigation arrows

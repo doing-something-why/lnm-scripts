@@ -1,4 +1,6 @@
-function initFilters() {
+import { showElement, hideElement, populateSelect } from './utils.js';
+
+export function initFilters() {
     const filters = document.querySelectorAll(".dropdown .dropdown-content");
     const selectedFiltersContainer = document.getElementById("selected-filters");
   

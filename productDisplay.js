@@ -2,19 +2,19 @@ import { showElement, hideElement, currencySymbols } from './utils.js';
 
 export function initProductDisplay() {
     const productContainer = document.getElementById('cards-container-2');
-  
+
     // Add event listeners for the navigation arrows
     const leftArrow = document.getElementById('left-arrow');
     const rightArrow = document.getElementById('right-arrow');
-  
+
     leftArrow.addEventListener('click', () => {
       productContainer.scrollLeft -= productContainer.offsetWidth;
     });
-  
+
     rightArrow.addEventListener('click', () => {
       productContainer.scrollLeft += productContainer.offsetWidth;
     });
-  
+
     // Check if arrows should be visible
     function checkArrowsVisibility() {
       const maxScrollLeft = productContainer.scrollWidth - productContainer.clientWidth;
@@ -29,15 +29,15 @@ export function initProductDisplay() {
         rightArrow.style.display = 'block';
       }
     }
-  
+
     productContainer.addEventListener('scroll', checkArrowsVisibility);
     window.addEventListener('resize', checkArrowsVisibility);
-  
+
     // Initial check
     checkArrowsVisibility();
-  }
-  
-  function showSkeletons(productContainer) {
+}
+
+export function showSkeletons(productContainer) {
     const skeletonHTML = `
       <div class="skeleton-card">
         <div class="skeleton-image"></div>
@@ -46,23 +46,23 @@ export function initProductDisplay() {
       </div>
     `;
     productContainer.innerHTML = skeletonHTML.repeat(6); // Show six skeleton cards
-  }
-  
-  function updateProductCards(data, productContainer, resultsTitleLoading, resultsTitleFound, searchForm) {
+}
+
+export function updateProductCards(data, productContainer, resultsTitleLoading, resultsTitleFound, searchForm) {
     if (!data || !data.vestiare || !data.vinted || !data.vestiare.items || !data.vinted.items) {
       console.error('Unexpected API response structure:', data);
       return;
     }
-  
+
     const vestiaireItems = data.vestiare.items; // Take top 3 items from Vestiaire
     const vintedItems = data.vinted.items; // Take top 3 items from Vinted
     const items = vestiaireItems.concat(vintedItems); // Combine both sets of items
-  
+
     console.log('Updating product cards with items:', items);
-  
+
     // Clear existing products and skeletons
     productContainer.innerHTML = '';
-  
+
     // Update with new products
     items.forEach(item => {
       console.log('Processing item:', item);
@@ -70,24 +70,24 @@ export function initProductDisplay() {
         console.error('Invalid item structure:', item);
         return;
       }
-  
+
       const isVestiaire = item.brand && item.brand.name;
       const productCardHTML = createProductCardHTML(item, isVestiaire);
-  
+
       const productCardElement = document.createElement('div');
       productCardElement.innerHTML = productCardHTML;
       productContainer.appendChild(productCardElement);
     });
-  
+
     // Make sure the product container is visible
     productContainer.style.display = 'flex';
-  
+
     hideElement(resultsTitleLoading);
     showElement(resultsTitleFound);
     searchForm.style.display = 'block';
-  }
-  
-  function createProductCardHTML(item, isVestiaire) {
+}
+
+function createProductCardHTML(item, isVestiaire) {
     const productImage = isVestiaire ? (item.pictures && item.pictures.length > 0 ? `https://images.vestiairecollective.com/images/resized/w=480,q=75,f=auto,${item.pictures[0]}` : 'default-image.jpg') : (item.photo ? item.photo.url : 'default-image.jpg');
     let productPrice;
     if (isVestiaire) {
@@ -110,7 +110,7 @@ export function initProductDisplay() {
     const platformLogo = isVestiaire 
       ? 'https://uploads-ssl.webflow.com/666b15a55a26ad71221e8e13/666e9e119c5082dae41c664f_vestiaire%20logo.png'
       : 'https://uploads-ssl.webflow.com/666b15a55a26ad71221e8e13/666e9e11d0c8bbf461c51a1e_vinted%20logo.png';
-  
+
     return `
       <a href="${productLink}" class="product-card-wrapper">
         <div class="product-card">
@@ -151,9 +151,8 @@ export function initProductDisplay() {
                 </div>
                 <div class="c-text-m-normal truncate-text" data-product-condition">${productCondition}</div>
               </div>` : ''}
-          </div>
         </div>
-      </a>
-    `;
-  }
-  
+      </div>
+    </a>
+  `;
+}

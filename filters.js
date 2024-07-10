@@ -1,6 +1,7 @@
 import { showElement, hideElement, populateSelect, countries, colors, handleDropdownClick} from './utils.js';
 
 export function updateSelectedFilters() {
+    const filters = document.querySelectorAll(".dropdown .dropdown-content");
     const selectedFiltersContainer = document.getElementById("selected-filters");
     selectedFiltersContainer.innerHTML = ""; // Clear existing filters
     filters.forEach(filter => {

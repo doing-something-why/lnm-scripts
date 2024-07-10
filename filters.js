@@ -47,12 +47,13 @@ export function removeFilter(event) {
 export function initFilters() {
     
     
+    /*
     const filters = document.querySelectorAll(".dropdown .dropdown-content");
     filters.forEach(filter => {
         const dropdown = filter.closest('.dropdown');
         dropdown.addEventListener('click', handleDropdownClick);
     });    
-
+    */
     populateSelect('country-nav', countries); // Use country-nav instead of country
     populateSelect('colors', colors);
 }

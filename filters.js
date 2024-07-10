@@ -1,7 +1,6 @@
 import { showElement, hideElement, populateSelect, countries, colors, handleDropdownClick } from './utils.js';
 
 export function updateSelectedFilters() {
-    console.log('updateSelectedFilters called'); // Add this line
     const filters = document.querySelectorAll(".dropdown .dropdown-content");
     const selectedFiltersContainer = document.getElementById("selected-filters");
     selectedFiltersContainer.innerHTML = ""; // Clear existing filters
@@ -21,24 +20,22 @@ export function updateSelectedFilters() {
                     filterTag.dataset.optionValue = selectedValue;
                     filterTag.addEventListener("click", removeFilter);
                     selectedFiltersContainer.appendChild(filterTag);
-                    console.log('Added filter tag:', filterTag); // Add this line
                 }
             });
         }
     });
-    console.log('Selected filters container:', selectedFiltersContainer); // Add this line
 }
 
 export function removeFilter(event) {
-    console.log('removeFilter called'); // Add this line
     const filterTag = event.target.closest(".filter-tag");
     const filterId = filterTag.dataset.filterId;
     const optionValue = filterTag.dataset.optionValue;
     const dropdown = document.getElementById(filterId);
-    const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
+    let currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
 
     if (filterId === 'colors') {
-        dropdown.dataset.selectedValues = currentValues.filter(val => val !== optionValue).join(',');
+        currentValues = currentValues.filter(val => val !== optionValue);
+        dropdown.dataset.selectedValues = currentValues.join(',');
     } else {
         dropdown.dataset.selectedValue = '';
     }
@@ -47,13 +44,9 @@ export function removeFilter(event) {
 }
 
 export function initFilters() {
-    console.log('initFilters called'); // Add this line
     const filters = document.querySelectorAll(".dropdown .dropdown-content");
-    const selectedFiltersContainer = document.getElementById("selected-filters");
-
     filters.forEach(filter => {
         const dropdown = filter.closest('.dropdown');
-        console.log('Adding click event listener to:', dropdown); // Add this line
         dropdown.addEventListener('click', handleDropdownClick);
     });
 

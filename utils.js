@@ -116,15 +116,11 @@ export const currencySymbols = {
   }
   
   export function handleDropdownClick(event) {
-    console.log('handleDropdownClick called'); // Add this line
     const dropdownItem = event.target;
-    console.log('Dropdown item clicked:', dropdownItem); // Add this line
     const dropdown = dropdownItem.closest('.dropdown');
     const value = dropdownItem.dataset.value;
     let currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
     const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
-
-    console.log('Dropdown:', dropdown, 'Value:', value, 'Current values before update:', currentValues, 'Filter name:', filterName); // Add this line
 
     if (dropdown.id === 'colors') {
         if (currentValues.includes(value)) {
@@ -133,30 +129,25 @@ export const currencySymbols = {
             currentValues.push(value);
         }
         dropdown.dataset.selectedValues = currentValues.join(',');
-        console.log('Updated selected values:', dropdown.dataset.selectedValues); // Add this line
     } else {
         dropdown.dataset.selectedValue = value;
-        console.log('Updated selected value:', dropdown.dataset.selectedValue); // Add this line
     }
 
-    console.log('Current values after update:', currentValues); // Add this line
-    updateSelectedFilters(filterName, value);
+    updateSelectedFilters();
 }
 
-  export function populateSelect(elementId, options) {
-    console.log('populateSelect called'); // Add this line
+export function populateSelect(elementId, options) {
     const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);
     if (dropdownContent) {
-      options.forEach(option => {
-        const opt = document.createElement('div');
-        opt.className = 'dropdown-item';
-        opt.dataset.value = option;
-        opt.innerHTML = option;
-        opt.addEventListener('click', handleDropdownClick);
-        dropdownContent.appendChild(opt);
-      });
-      console.log(`Populated ${elementId} with options:`, options);
+        options.forEach(option => {
+            const opt = document.createElement('div');
+            opt.className = 'dropdown-item';
+            opt.dataset.value = option;
+            opt.innerHTML = option;
+            opt.addEventListener('click', handleDropdownClick);
+            dropdownContent.appendChild(opt);
+        });
     } else {
-      console.error(`Dropdown content for element ID "${elementId}" not found.`);
+        console.error(`Dropdown content for element ID "${elementId}" not found.`);
     }
-  }
+}

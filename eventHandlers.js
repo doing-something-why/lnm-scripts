@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-export function handleDropdownClick(event) {
+function handleDropdownClick(event) {
   const dropdownItem = event.target;
   const dropdown = dropdownItem.closest('.dropdown');
   const value = dropdownItem.dataset.value;
@@ -188,7 +188,7 @@ function handleSearchFormSubmit(event) {
 
 function handleAutoSearch(searchForm) {
   const params = new URLSearchParams(window.location.search);
-  const url = params.get('search_str');
+  const search_str = params.get('search_str');
   const country = params.get('country');
   const colors = params.get('colors') ? params.get('colors').split(',') : [];
 

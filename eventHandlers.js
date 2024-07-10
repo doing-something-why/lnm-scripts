@@ -188,7 +188,7 @@ function handleSearchFormSubmit(event) {
 
 function handleAutoSearch(searchForm) {
   const params = new URLSearchParams(window.location.search);
-  const search_str = params.get('search_str');
+  const url = params.get('search_str');
   const country = params.get('country');
   const colors = params.get('colors') ? params.get('colors').split(',') : [];
 

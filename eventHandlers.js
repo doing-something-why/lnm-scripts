@@ -60,7 +60,7 @@ export function handleDropdownClick(event) {
   const dropdown = dropdownItem.closest('.dropdown');
   const value = dropdownItem.dataset.value;
   const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
-  const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
+  const filterName = dropdown.closest('.filter-button').querySelector('.c-text-s').textContent;
 
   if (dropdown.id === 'colors') {
     if (currentValues.includes(value)) {

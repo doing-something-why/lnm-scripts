@@ -121,24 +121,25 @@ export const currencySymbols = {
     console.log('Dropdown item clicked:', dropdownItem); // Add this line
     const dropdown = dropdownItem.closest('.dropdown');
     const value = dropdownItem.dataset.value;
-    const currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
+    let currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
     const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
 
-    console.log('Dropdown:', dropdown, 'Value:', value, 'Current values:', currentValues, 'Filter name:', filterName); // Add this line
+    console.log('Dropdown:', dropdown, 'Value:', value, 'Current values before update:', currentValues, 'Filter name:', filterName); // Add this line
 
     if (dropdown.id === 'colors') {
         if (currentValues.includes(value)) {
-            dropdown.dataset.selectedValues = currentValues.filter(val => val !== value).join(',');
+            currentValues = currentValues.filter(val => val !== value);
         } else {
             currentValues.push(value);
-            dropdown.dataset.selectedValues = currentValues.join(',');
         }
+        dropdown.dataset.selectedValues = currentValues.join(',');
         console.log('Updated selected values:', dropdown.dataset.selectedValues); // Add this line
     } else {
         dropdown.dataset.selectedValue = value;
         console.log('Updated selected value:', dropdown.dataset.selectedValue); // Add this line
     }
 
+    console.log('Current values after update:', currentValues); // Add this line
     updateSelectedFilters(filterName, value);
 }
 

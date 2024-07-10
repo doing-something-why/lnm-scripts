@@ -1,4 +1,4 @@
-import { showElement, hideElement, populateSelect } from './utils.js';
+import { showElement, hideElement, populateSelect, countries, colors} from './utils.js';
 
 export function initFilters() {
   const filters = document.querySelectorAll(".dropdown .dropdown-content");
@@ -69,4 +69,6 @@ export function initFilters() {
 
     updateSelectedFilters();
   }
+  populateSelect('country-nav', countries); // Use country-nav instead of country
+  populateSelect('colors', colors);
 }

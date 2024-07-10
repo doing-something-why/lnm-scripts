@@ -79,6 +79,30 @@ export const currencySymbols = {
     "VA": "Vatican City State"
   };
   
+  
+  export const countries = [
+    "France", "Albania", "Armenia", "Australia", "Austria", "Azerbaijan",
+    "Bahrain", "Belgium", "Brazil", "Bulgaria", "Canada", "China", "Croatia",
+    "Cyprus", "Czech Republic", "Denmark", "Egypt", "Estonia", "Finland",
+    "Germany", "Greece", "Guadeloupe", "Guatemala", "Hong Kong", "Hungary",
+    "Indonesia", "Ireland", "Israel", "Italy", "Japan", "Jersey", "Kenya",
+    "Kuwait", "Latvia", "Lebanon", "Liechtenstein", "Lithuania", "Luxembourg",
+    "Macau", "Malaysia", "Malta", "Martinique", "Mexico", "Monaco",
+    "Netherlands", "New Zealand", "Norway", "Philippines", "Poland",
+    "Portugal", "Qatar", "Reunion", "Romania", "San Marino", "Saudi Arabia",
+    "Singapore", "Slovakia", "Slovenia", "South Africa", "South Korea",
+    "Spain", "St Martin", "Sweden", "Switzerland", "Taiwan", "Thailand",
+    "The Canary Islands", "Tunisia", "Turkey", "Ukraine", "United Arab Emirates",
+    "United Kingdom", "United States", "Vatican City State"
+  ];
+
+  export const colors = [
+    "Beige", "Black", "Blue", "Brown", "Burgundy", "Khaki", "Grey", "Cream",
+    "Gold", "Green", "Silver", "Multi", "Navy", "Orange", "Pink", "Purple",
+    "Red", "Turquoise", "White", "Yellow", "Light blue", "Rose", "Dark green",
+    "Coral", "Mustard", "Lilac", "Mint", "Apricot"
+  ];
+
   export function showElement(element) {
     console.log('showElement called'); // Add this line
     element.classList.add('show');

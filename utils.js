@@ -113,23 +113,6 @@ export const currencySymbols = {
     element.classList.remove('show');
   }
   
-  export function populateSelect(elementId, options) {
-    console.log('populateSelect called'); // Add this line
-    const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);
-    if (dropdownContent) {
-      options.forEach(option => {
-        const opt = document.createElement('div');
-        opt.className = 'dropdown-item';
-        opt.dataset.value = option;
-        opt.innerHTML = option;
-        opt.addEventListener('click', handleDropdownClick);
-        dropdownContent.appendChild(opt);
-      });
-      console.log(`Populated ${elementId} with options:`, options);
-    } else {
-      console.error(`Dropdown content for element ID "${elementId}" not found.`);
-    }
-  }
 
   export function handleDropdownClick(event) {
     const dropdownItem = event.target;
@@ -150,4 +133,22 @@ export const currencySymbols = {
     }
   
     updateSelectedFilters(filterName, value);
+  }
+  
+  export function populateSelect(elementId, options) {
+    console.log('populateSelect called'); // Add this line
+    const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);
+    if (dropdownContent) {
+      options.forEach(option => {
+        const opt = document.createElement('div');
+        opt.className = 'dropdown-item';
+        opt.dataset.value = option;
+        opt.innerHTML = option;
+        opt.addEventListener('click', handleDropdownClick);
+        dropdownContent.appendChild(opt);
+      });
+      console.log(`Populated ${elementId} with options:`, options);
+    } else {
+      console.error(`Dropdown content for element ID "${elementId}" not found.`);
+    }
   }

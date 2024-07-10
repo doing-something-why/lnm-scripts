@@ -14,10 +14,10 @@ export function initCountrySelection() {
           const matchingOption = options.find(opt => opt.dataset.value === countryName);
   
           if (matchingOption) {
-            selectElement.querySelector('.c-text-s').innerHTML = countryName;
+            selectElement.querySelector('.c-text-l').innerHTML = countryName;
             selectElement.dataset.selectedValue = countryName;
           } else {
-            selectElement.querySelector('.c-text-s').innerHTML = 'United States';
+            selectElement.querySelector('.c-text-l').innerHTML = 'United States';
             selectElement.dataset.selectedValue = 'United States';
           }
         }

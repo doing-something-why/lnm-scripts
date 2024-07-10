@@ -74,7 +74,7 @@ export function initSearchForm() {
 
       if (url && country) {
         document.getElementById('item-url').value = url;
-        document.querySelector(`#country-nav .c-text-s`).innerHTML = country; // Use country-nav instead of country
+        document.querySelector(`#country-nav .c-text-l`).innerHTML = country; // Use country-nav instead of country
         document.getElementById('country-nav').dataset.selectedValue = country; // Use country-nav instead of country
 
         const colorOptions = colors.join(', ');

@@ -120,17 +120,23 @@ export const currencySymbols = {
     const dropdown = dropdownItem.closest('.dropdown');
     const value = dropdownItem.dataset.value;
     let currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
-
+    const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
+    
     if (dropdown.id === 'colors') {
+        // Allow multiple selections for colors
         if (currentValues.includes(value)) {
-            currentValues = currentValues.filter(val => val !== value);
+          // Remove the value if already selected
+          dropdown.dataset.selectedValues = currentValues.filter(val => val !== value).join(',');
         } else {
-            currentValues.push(value);
+          // Add the value if not already selected
+          currentValues.push(value);
+          dropdown.dataset.selectedValues = currentValues.join(',');
         }
-        dropdown.dataset.selectedValues = currentValues.join(',');
-    } else {
+      } else {
+        // Single selection for other filters
         dropdown.dataset.selectedValue = value;
-    }
+      }
+    
 
     updateSelectedFilters();
 }
@@ -139,15 +145,16 @@ export const currencySymbols = {
 export function populateSelect(elementId, options) {
     const dropdownContent = document.querySelector(`#${elementId} .dropdown-content`);
     if (dropdownContent) {
-        options.forEach(option => {
-            const opt = document.createElement('div');
-            opt.className = 'dropdown-item';
-            opt.dataset.value = option;
-            opt.innerHTML = option;
-            opt.addEventListener('click', handleDropdownClick);
-            dropdownContent.appendChild(opt);
-        });
+      options.forEach(option => {
+        const opt = document.createElement('div');
+        opt.className = 'dropdown-item';
+        opt.dataset.value = option;
+        opt.innerHTML = option;
+        opt.addEventListener('click', handleDropdownClick);
+        dropdownContent.appendChild(opt);
+      });
+      console.log(`Populated ${elementId} with options:`, options);
     } else {
-        console.error(`Dropdown content for element ID "${elementId}" not found.`);
+      console.error(`Dropdown content for element ID "${elementId}" not found.`);
     }
-}
+  }

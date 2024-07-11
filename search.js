@@ -78,11 +78,11 @@ export function initSearchForm() {
 
       if (search_str && country) {
         document.getElementById('search-str').value = search_str;
-        document.querySelector(`#country-nav .c-text-l`).innerHTML = country; // Use country-nav instead of country
+        document.getElementById('selected-country').value = country; // Use country-nav instead of country
         document.getElementById('country-nav').dataset.selectedValue = country; // Use country-nav instead of country
 
         const colorOptions = colors.join(', ');
-        document.querySelector(`#colors .c-text-l`).innerHTML = "Colors"; // Display "Colors" instead of the values
+        document.getElementById('selected-colors').value = "Colors"; // Display "Colors" instead of the values
         document.getElementById('colors').dataset.selectedValues = colorOptions;
 
         // Trigger the form submission

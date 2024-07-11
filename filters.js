@@ -10,6 +10,7 @@ export function updateSelectedFilters() {
         const filterId = dropdown.id;
         const filterName = filterId.charAt(0).toUpperCase() + filterId.slice(1); // Capitalize filter name
         const selectedValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
+        console.log("selectedValues: ", selectedValues)
 
         if (filterId !== 'country-nav' && filterId !== 'country') {
             selectedValues.forEach(selectedValue => {

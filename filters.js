@@ -1,5 +1,4 @@
 import { showElement, hideElement, countries, colors } from './utils.js';
-import { updateSelectedFilters } from './filters.js';
 
 export function updateSelectedFilters() {
     const filters = document.querySelectorAll(".dropdown .dropdown-content");

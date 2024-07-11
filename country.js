@@ -1,4 +1,4 @@
-import { countryCodesToNames, handleDropdownClick } from './utils.js'; // Ensure utils.js is correctly imported
+import { countryCodesToNames } from './utils.js'; // Ensure utils.js is correctly imported
 
 export function initCountrySelection() {
     fetch(`https://ipinfo.io?token=a3e2e26d91aed3`)

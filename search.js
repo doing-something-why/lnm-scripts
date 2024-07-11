@@ -21,7 +21,6 @@ export function initSearchForm() {
         // Show the results section and loading title
         showElement(resultsSection);
         showElement(resultsTitleLoading);
-        showElement(filtersWrapper);
         hideElement(resultsTitleFound);
         showSkeletons(productContainer);
 

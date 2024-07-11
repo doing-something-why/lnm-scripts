@@ -125,6 +125,7 @@ export function updateProductCards(data, productContainer, resultsTitleLoading, 
 
     hideElement(resultsTitleLoading);
     showElement(resultsTitleFound);
+    showElement(filtersWrapper);
     searchForm.style.display = 'block';
 }
 

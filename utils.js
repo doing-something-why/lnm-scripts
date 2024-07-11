@@ -138,7 +138,7 @@ export const currencySymbols = {
       }
     
 
-    updateSelectedFilters();
+    updateSelectedFilters(filterName, value);
 }
 
 

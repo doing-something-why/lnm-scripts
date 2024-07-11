@@ -9,6 +9,7 @@ export function initSearchForm() {
     const resultsTitleLoading = document.getElementById('results_title_loading');
     const resultsTitleFound = document.getElementById('results_title_found');
     const productContainer = document.getElementById('cards-container-2');
+    const filtersWrapper = document.getElementById('filters-wrapper');
 
     if (searchForm) {
       searchForm.addEventListener('submit', function(event) {
@@ -20,6 +21,7 @@ export function initSearchForm() {
         // Show the results section and loading title
         showElement(resultsSection);
         showElement(resultsTitleLoading);
+        showElement(filtersWrapper);
         hideElement(resultsTitleFound);
         showSkeletons(productContainer);
 

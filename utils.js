@@ -1,7 +1,68 @@
 import { updateSelectedFilters } from './filters.js';
 
 export const currencySymbols = {
-    // Currency symbols mapping
+    "USD": "$",       // United States Dollar
+    "EUR": "€",       // Euro
+    "GBP": "£",       // British Pound Sterling
+    "ALL": "Lek",     // Albanian Lek
+    "AMD": "֏",       // Armenian Dram
+    "AUD": "$",       // Australian Dollar
+    "AZN": "₼",       // Azerbaijani Manat
+    "BHD": ".د.ب",    // Bahraini Dinar
+    "BRL": "R$",      // Brazilian Real
+    "BGN": "лв",      // Bulgarian Lev
+    "CAD": "$",       // Canadian Dollar
+    "CNY": "¥",       // Chinese Yuan
+    "HRK": "kn",      // Croatian Kuna
+    "CZK": "Kč",      // Czech Koruna
+    "DKK": "kr",      // Danish Krone
+    "EGP": "£",       // Egyptian Pound
+    "EEK": "kr",      // Estonian Kroon
+    "FIM": "mk",      // Finnish Markka
+    "FRF": "₣",       // French Franc
+    "DEM": "DM",      // German Mark
+    "GIP": "£",       // Gibraltar Pound
+    "GRD": "₯",       // Greek Drachma
+    "HUF": "Ft",      // Hungarian Forint
+    "ISK": "kr",      // Icelandic Króna
+    "INR": "₹",       // Indian Rupee
+    "IDR": "Rp",      // Indonesian Rupiah
+    "IEP": "£",       // Irish Pound
+    "ILS": "₪",       // Israeli Shekel
+    "ITL": "₤",       // Italian Lira
+    "JPY": "¥",       // Japanese Yen
+    "JOD": "د.أ",     // Jordanian Dinar
+    "KRW": "₩",       // South Korean Won
+    "KWD": "د.ك",     // Kuwaiti Dinar
+    "LBP": "£",       // Lebanese Pound
+    "LUF": "₣",       // Luxembourg Franc
+    "MYR": "RM",      // Malaysian Ringgit
+    "MXN": "$",       // Mexican Peso
+    "NLG": "ƒ",       // Dutch Guilder
+    "NZD": "$",       // New Zealand Dollar
+    "NOK": "kr",      // Norwegian Krone
+    "PKR": "₨",       // Pakistani Rupee
+    "PEN": "S/.",     // Peruvian Sol
+    "PHP": "₱",       // Philippine Peso
+    "PLN": "zł",      // Polish Zloty
+    "PTE": "₣",       // Portuguese Escudo
+    "QAR": "﷼",      // Qatari Riyal
+    "RUB": "₽",       // Russian Ruble
+    "SAR": "﷼",      // Saudi Riyal
+    "SGD": "$",       // Singapore Dollar
+    "ZAR": "R",       // South African Rand
+    "ESP": "₧",       // Spanish Peseta
+    "SEK": "kr",      // Swedish Krona
+    "CHF": "₣",       // Swiss Franc
+    "TWD": "NT$",     // Taiwan Dollar
+    "THB": "฿",       // Thai Baht
+    "TRY": "₺",       // Turkish Lira
+    "AED": "د.إ",     // United Arab Emirates Dirham
+    "UYU": "$",       // Uruguayan Peso
+    "VND": "₫",       // Vietnamese Dong
+    "YER": "﷼",      // Yemeni Rial
+    "ZMK": "ZK",      // Zambian Kwacha
+    "ZWD": "$"        // Zimbabwean Dollar
   };
   
   export const countryCodesToNames = {

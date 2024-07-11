@@ -24,22 +24,24 @@ export function initSearchForm() {
         showSkeletons(productContainer);
 
         // Get form values
-        const itemUrl = document.getElementById('item-url');
+        const search_str = document.getElementById('search-str');
         const country = document.getElementById('country-nav').dataset.selectedValue; // Use country-nav instead of country
-        const colors = document.getElementById('colors').dataset.selectedValues ? document.getElementById('colors').dataset.selectedValues.split(',') : [];
+        
+        // commenting to move filters after search 
+        // const colors = document.getElementById('colors').dataset.selectedValues ? document.getElementById('colors').dataset.selectedValues.split(',') : [];
 
-        if (!itemUrl || !country) {
+        if (!search_str || !country) {
           console.error('Form elements not found or not selected.');
           return;
         }
 
-        const itemUrlValue = itemUrl.value;
+        const search_strValue = search_str.value;
         const countryValue = country;
         const colorsValue = colors;
 
         // Prepare API request
         const requestBody = {
-          search_str: itemUrlValue,
+          search_str: search_strValue,
           country: countryValue,
           colors: colorsValue
         };
@@ -68,12 +70,12 @@ export function initSearchForm() {
 
       // Automatically perform search if URL has parameters
       const params = new URLSearchParams(window.location.search);
-      const url = params.get('search_str');
+      const search_str = params.get('search_str');
       const country = params.get('country');
       const colors = params.get('colors') ? params.get('colors').split(',') : [];
 
-      if (url && country) {
-        document.getElementById('item-url').value = url;
+      if (search_str && country) {
+        document.getElementById('search-str').value = search_str;
         document.querySelector(`#country-nav .c-text-l`).innerHTML = country; // Use country-nav instead of country
         document.getElementById('country-nav').dataset.selectedValue = country; // Use country-nav instead of country
 

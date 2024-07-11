@@ -30,4 +30,3 @@ export function initCountrySelection() {
         selectElement.dataset.selectedValue = 'United States';
       });
 }
-

@@ -39,13 +39,13 @@ export function initProductDisplay() {
         if (copyLinkSearch) {
           copyLinkSearch.addEventListener('click', function() {
             // Get form values
-            const itemUrl = document.getElementById('item-url').value;
+            const search_str = document.getElementById('search-str').value;
             const country = document.getElementById('country-nav').dataset.selectedValue;
             const colors = document.getElementById('colors').dataset.selectedValues ? document.getElementById('colors').dataset.selectedValues.split(',') : [];
       
             // Generate the search link with parameters
             const params = new URLSearchParams({
-              search_str: itemUrl,
+              search_str: search_str,
               country: country,
               colors: colors.join(',')
             });

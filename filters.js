@@ -49,7 +49,7 @@ export function handleDropdownClick(event) {
     const dropdown = dropdownItem.closest('.dropdown');
     const value = dropdownItem.dataset.value;
     let currentValues = dropdown.dataset.selectedValues ? dropdown.dataset.selectedValues.split(',') : [];
-    const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
+    // const filterName = dropdown.closest('.filter-button').querySelector('.c-text-l').textContent;
 
     if (dropdown.id === 'colors') {
         // Allow multiple selections for colors
@@ -64,11 +64,11 @@ export function handleDropdownClick(event) {
     } else {
         // Single selection for other filters
         dropdown.dataset.selectedValue = value;
-        dropdown.querySelector('.c-text-l').innerText = value; // Update the visible text
+        document.getElementById('selected-country').innerText = value;
 
     }
 
-    updateSelectedFilters(filterName, value);
+    updateSelectedFilters();
 }
 
 export function populateSelect(elementId, options) {

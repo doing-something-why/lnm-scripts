@@ -64,6 +64,8 @@ export function handleDropdownClick(event) {
     } else {
         // Single selection for other filters
         dropdown.dataset.selectedValue = value;
+        dropdown.querySelector('.c-text-l').innerText = value; // Update the visible text
+
     }
 
     updateSelectedFilters(filterName, value);
